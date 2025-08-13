@@ -1,2 +1,4 @@
-# web-231
-repo for web-231 course at bellevue
+# WEB 231 Enterprise JavaScript 1
+## Contributors
+- Richard Krasso
+- Will Southard

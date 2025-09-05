@@ -4,7 +4,7 @@
 
     Application to calculate total order cost
     Author: Will Southard
-    Date: 8/15/25
+    Date: 9/4/25
 
     Filename: project03-01.js
 */

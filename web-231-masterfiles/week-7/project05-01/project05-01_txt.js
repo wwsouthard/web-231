@@ -1,13 +1,13 @@
 "use strict";
 /*    JavaScript 7th Edition
-      Chapter 5
-      Project 05-01
+    Chapter 5
+    Project 05-01
 
-      Project to present an online quiz with a countdown clock
-      Author: 
-      Date:   
+    Project to present an online quiz with a countdown clock
+    Author: 
+    Date:   
 
-      Filename: project05-01.js
+    Filename: project05-01.js
 */
 
 // Constants to set the time given for the quiz in seconds
@@ -49,16 +49,16 @@ let timeLeft = quizTime;
 
 /*------------- Function to check the student answers ----------------*/
 function checkAnswers() {
-   let correctCount = 0;
-   
-   for (let i = 0; i < questionList.length; i++) {
-      if (questionList[i].value === correctAnswers[i]) {
-         correctCount++;
-         questionList[i].className = "";
-      } else {
-         questionList[i].className = "wronganswer";
-      }      
-   }
-   return correctCount;
+  let correctCount = 0;
+  
+  for (let i = 0; i < questionList.length; i++) {
+    if (questionList[i].value === correctAnswers[i]) {
+      correctCount++;
+      questionList[i].className = "";
+    } else {
+      questionList[i].className = "wronganswer";
+    }      
+  }
+  return correctCount;
 }
 

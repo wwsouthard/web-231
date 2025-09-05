@@ -1,14 +1,14 @@
 /*    JavaScript 7th Edition
-     Chapter 3
-     Chapter case
+  Chapter 3
+  Chapter case
 
-     Tipton Turbines
-     Program to display games results in a web table
-     Author: Will Southard
-     Date: 8/15/25
+  Tipton Turbines
+  Program to display games results in a web table
+  Author: Will Southard
+  Date: 8/15/25
 
-     Filename: js03.js
- */
+  Filename: js03.js
+*/
 
 // Days of the week
 let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -40,25 +40,25 @@ function showGames() {
 
         // Open the paragraph
         switch (gameResults[i]) {
-            case "W":
+        case "W":
                 gameInfo += "<p class='win'>";
                 break;
-            case "L":
+        case "L":
                 gameInfo += "<p class='lose'>";
                 break;
-            case "S":
+        case "S":
                 gameInfo += "<p class='suspended'>";
                 break;
-            case "P":
+        case "P":
                 gameInfo += "<p class='postponed'>";
                 break;
         }
 
         // Display the game location
         if (gameLocations[i] ==="h") {
-            gameInfo += "vs. ";
+        gameInfo += "vs. ";
         } else if (gameLocations[i] === "a") {
-            gameInfo += "@ ";
+        gameInfo += "@ ";
         }
 
         // Included the opponent
@@ -69,11 +69,11 @@ function showGames() {
 
         // Display innings played for suspended, shortened, or extrainning games
         if (gameInnings[i] < 5) {
-            gameInfo += " [" + gameInnings[i] +"]***";
+        gameInfo += " [" + gameInnings[i] +"]***";
         } else if (gameInnings[i] < 9) {
-            gameInfo += " [" + gameInnings[i] +"]*";
+        gameInfo += " [" + gameInnings[i] +"]*";
         } else if (gameInnings[i] > 9) {
-            gameInfo += " [" + gameInnings[i] +"]";
+        gameInfo += " [" + gameInnings[i] +"]";
         }
 
         // Close the paragraph

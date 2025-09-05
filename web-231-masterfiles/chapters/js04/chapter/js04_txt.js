@@ -1,14 +1,14 @@
 /*    JavaScript 7th Edition
-      Chapter 4
-      Chapter case
+    Chapter 4
+    Chapter case
 
-      Tuba Farm Equipment
-      Variables and functions
-      Author: 
-      Date:   
+    Tuba Farm Equipment
+    Variables and functions
+    Author: 
+    Date:   
 
-      Filename: js04.js
- */
+    Filename: js04.js
+*/
 
 
 /* global variables tracking status of each form section */
@@ -43,86 +43,86 @@ window.addEventListener("load", createEventListeners);
 
 /* create event listeners for all input elements */
 function createEventListeners() {   
-   acresBox.value = ""; // clear acres text box on page load
-   monthsBox.value = ""; // clear months text box on page load
+  acresBox.value = ""; // clear acres text box on page load
+  monthsBox.value = ""; // clear months text box on page load
 
-   acresBox.addEventListener("input", verifyAcres); 
-   
-   let cropsBox;
-   for (let i = 0; i < 7; i++) {
-      cropsBox = cropsFieldset.getElementsByTagName("input")[i];
-      cropsBox.checked = false;      
-      cropsBox.addEventListener("click", verifyCrops); 
-   }
-   
-   monthsBox.addEventListener("input", verifyMonths); 
+  acresBox.addEventListener("input", verifyAcres); 
+  
+  let cropsBox;
+  for (let i = 0; i < 7; i++) {
+    cropsBox = cropsFieldset.getElementsByTagName("input")[i];
+    cropsBox.checked = false;      
+    cropsBox.addEventListener("click", verifyCrops); 
+  }
+  
+  monthsBox.addEventListener("input", verifyMonths); 
 
-   let fuelBox;
-   for (let i = 0; i < 3; i++) {
-      fuelBox = fuelFieldset.getElementsByTagName("input")[i];     
-      fuelBox.addEventListener("click", verifyFuel); 
-   }
+  let fuelBox;
+  for (let i = 0; i < 3; i++) {
+    fuelBox = fuelFieldset.getElementsByTagName("input")[i];     
+    fuelBox.addEventListener("click", verifyFuel); 
+  }
 }
 
 
 
 /* verify acres text box entry is a positive number */
 function verifyAcres) {
-   testFormCompleteness();      
+  testFormCompleteness();      
 }
 
 /* verify at least one crops checkbox is checked */
 function verifyCrops() {
-   testFormCompleteness();
+  testFormCompleteness();
 }
 
 /* verify months text box entry is between 1 and 12 */
 function verifyMonths() {
-   testFormCompleteness();
+  testFormCompleteness();
 }
 
 /* verify that a fuel option button is selected */
 function verifyFuel() {
-   testFormCompleteness();
+  testFormCompleteness();
 }
 
 /* check if all four form sections are completed */
 function testFormCompleteness() {
-   if (acresComplete && cropsComplete && monthsComplete && fuelComplete) {
-      createRecommendation();
-   }
+  if (acresComplete && cropsComplete && monthsComplete && fuelComplete) {
+    createRecommendation();
+  }
 }
 
 /* generate tractor recommendation based on user selections */
 function createRecommendation() {
-   if (acresBox.value >= 5000) { // 5000 acres or less, no crop test needed
-      if (monthsBox.value <= 10) { // 10+ months of farming per year
-         messageHeadElement.innerHTML = "E3250";
-         messageElement.innerHTML = E3250Desc;        
-      } else { // 9 or fewer months per year
-         messageHeadElement.innerHTML = "E2600";
-         messageElement.innerHTML = E2600Desc;           
+  if (acresBox.value >= 5000) { // 5000 acres or less, no crop test needed
+    if (monthsBox.value <= 10) { // 10+ months of farming per year
+      messageHeadElement.innerHTML = "E3250";
+      messageElement.innerHTML = E3250Desc;        
+    } else { // 9 or fewer months per year
+      messageHeadElement.innerHTML = "E2600";
+      messageElement.innerHTML = E2600Desc;           
+    }
+  } else { // more than 5000 acres
+    if (monthsBox.value <= 9) { // 9 or fewer months per year, no crop test needed
+      messageHeadElement.innerHTML = "W1205";
+      messageElement.innerHTML = W1205Desc;
+    } else { // 10+ months of farming per year
+      if (document.getElementById("wheat").checked || document.getElementById("corn").checked || document.getElementById("soy").checked) {
+        messageHeadElement.innerHTML = "W2500";
+        messageElement.innerHTML = W2500Desc;
+      } else {
+        messageHeadElement.innerHTML = "W2550";
+        messageElement.innerHTML = W2550Desc;
       }
-   } else { // more than 5000 acres
-      if (monthsBox.value <= 9) { // 9 or fewer months per year, no crop test needed
-         messageHeadElement.innerHTML = "W1205";
-         messageElement.innerHTML = W1205Desc;
-      } else { // 10+ months of farming per year
-         if (document.getElementById("wheat").checked || document.getElementById("corn").checked || document.getElementById("soy").checked) {
-            messageHeadElement.innerHTML = "W2500";
-            messageElement.innerHTML = W2500Desc;
-         } else {
-            messageHeadElement.innerHTML = "W2550";
-            messageElement.innerHTML = W2550Desc;
-         }
-      }
-   }
-   
-   if (document.getElementById("E85").checked) { // add suffix to model name based on fuel choice
-      messageHeadElement.innerHTML += "E";
-   } else if (document.getElementById("biodiesel").checked) {
-      messageHeadElement.innerHTML = "B";
-   } else {
-      messageHeadElement.innerHTML += "D";  
-   }
+    }
+  }
+  
+  if (document.getElementById("E85").checked) { // add suffix to model name based on fuel choice
+    messageHeadElement.innerHTML += "E";
+  } else if (document.getElementById("biodiesel").checked) {
+    messageHeadElement.innerHTML = "B";
+  } else {
+    messageHeadElement.innerHTML += "D";  
+  }
 }

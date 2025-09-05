@@ -1,14 +1,14 @@
 /*    JavaScript 7th Edition
-      Chapter 2
-      Chapter case
+    Chapter 2
+    Chapter case
 
-      Fan Trick Fine Art Photography
-      Variables and functions
-      Author: Will Southard
-      Date: 8/15/25
+    Fan Trick Fine Art Photography
+    Variables and functions
+    Author: Will Southard
+    Date: 8/15/25
 
-      Filename: js02.js
- */
+    Filename: js02.js
+*/
 
 // declare global constants for the application
 const EMP_COST = 100;    // cost of photographers per hour

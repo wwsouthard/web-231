@@ -1,11 +1,11 @@
 "use strict";
 /*    JavaScript 7th Edition
-      Chapter 5
-      Chapter Case
+    Chapter 5
+    Chapter Case
 
-      Image List
+    Image List
 
-      Filename:lightbox_data.js
+    Filename:lightbox_data.js
 */
 
 // Title of the slideshow

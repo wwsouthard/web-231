@@ -1,12 +1,12 @@
 /*    JavaScript 7th Edition
-      Chapter 3
-      Project 03-01
+    Chapter 3
+    Project 03-01
 
-      Application to calculate total order cost
-      Author: Will Southard
-      Date: 8/15/25
+    Application to calculate total order cost
+    Author: Will Southard
+    Date: 8/15/25
 
-      Filename: project03-01.js
+    Filename: project03-01.js
 */
 
 // Declare global variables
@@ -25,7 +25,7 @@ function calcTotal() {
     // Add the cost of each menu item
     for (let i = 0; i < menuItems.length; i++) {
         if (menuItems[i].checked) {
-            orderTotal += Number(menuItems[i].value);
+        orderTotal += Number(menuItems[i].value);
         }
     }
 
@@ -33,7 +33,7 @@ function calcTotal() {
     billTotal.innerHTML = formatCurrency(orderTotal);
 }
 
- // Function to display a numeric value as a text string in the format $##.## 
- function formatCurrency(value) {
+// Function to display a numeric value as a text string in the format $##.## 
+function formatCurrency(value) {
     return "$" + value.toFixed(2);
- }
+}

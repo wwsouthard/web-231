@@ -3,8 +3,8 @@
     Project 03-02
 
     Application to generate a slide gallery
-    Author: 
-    Date:   
+    Author: Will Southard
+    Date: 9/10/25
 
     Filename: project03-02.js
 */
@@ -25,4 +25,16 @@ captions[11]="The International Space Station second expansion [2006]";
 captions[12]="The International Space Station third expansion [2007]";
 captions[13]="The ISS over the Ionian Sea [2007]";
 
+// Create htmlCode variable
+let htmlCode = "";
 
+// Create a loop to generate the html code
+for (let i = 0; i < captions.length; i++) {
+  htmlCode += `<figure>
+    <img alt='' src='slide${i}.jpg' />
+    <figcaption>${captions[i]}</figcaption>
+  </figure>`;
+}
+
+// Write the html code to the gallery
+document.getElementById("gallery").innerHTML = htmlCode;

@@ -12,7 +12,7 @@
 
 // Constants to set the time given for the quiz in seconds
 // and the correct answers to each quiz question
-const quizTime = 20;
+const quizTime = 90;
 const correctAnswers = ["10", "4", "-6", "5", "-7"];
 
 // Elements in the quiz page
@@ -25,26 +25,37 @@ quizClock.value = quizTime;
 let timeLeft = quizTime;
 
 // Declare the ID for timed commands
+let timeID;
+
 // and the node list for questions
+let questionList = document.querySelectorAll("div#quiz input");
 
+// Add onclick event handler to startQuiz
+startQuiz.onclick = function() {
+  overlay.className = "showquiz";
+  timeID = setInterval(countdown, 1000);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Countdown function
+function countdown() {
+  timeLeft--;
+  quizClock.value = timeLeft;
+  if (timeLeft <= 0) {
+    clearInterval(timeID);
+    let totalCorrect = checkAnswers();
+    if (totalCorrect === correctAnswers.length) {
+      alert("Congratulations! You got all the answers correct.");
+    } else {
+      alert("Your score is " + totalCorrect + " out of " + correctAnswers.length + ".");
+    }
+    timeLeft = quizTime;
+    quizClock.value = timeLeft;
+    overlay.className = "hidequiz";
+  } else {
+    timeLeft -= 1;
+    quizClock.value = timeLeft;
+  }
+}
 
 
 /*------------- Function to check the student answers ----------------*/
